@@ -1,65 +1,137 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 
 export default function Home() {
+  const images = [
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111637.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111638.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111642.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111643.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111649.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111650.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111656.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111657.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111700.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111702.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111703.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111707.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111711.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111723.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111729.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111730.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111743.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111744.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111746.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111747.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111750.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111751.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111752.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111754.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111759.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111800.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111802.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111803.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111805.jpeg",
+    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111806.jpeg"
+  ];
+
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="min-h-screen bg-black text-white px-6 pb-32">
+
+      {/* LOGO (NÃO ALTERADO) */}
+      <div className="flex justify-center pt-10">
+        <img
+          src="/logo/logo.png"
+          alt="Logo"
+          className="w-[350px] md:w-[550px] lg:w-[700px]"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+      </div>
+
+      {/* HERO */}
+      <section className="max-w-5xl mx-auto text-center mt-20">
+
+        <p className="text-xs tracking-[0.4em] text-white/40 uppercase">
+          Architectural Collection
+        </p>
+
+        <h1 className="text-5xl md:text-7xl font-light tracking-wide mt-6">
+          CATÁLOGOS
+        </h1>
+
+        <div className="w-28 h-[1px] bg-white/20 mx-auto mt-8" />
+
+        <p className="mt-10 text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+          Um acervo de projetos que traduz elegância e sofisticação.
+        </p>
+
+      </section>
+
+      {/* TÍTULO GALERIA */}
+      <section className="max-w-7xl mx-auto mt-24">
+
+        <h2 className="text-3xl font-light tracking-widest mb-10 border-b border-white/10 pb-4">
+          APARADORES
+        </h2>
+
+        {/* GALERIA */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+          {images.map((img, i) => (
+            <div
+              key={i}
+              onClick={() => setSelectedImage(img)}
+              className="group relative overflow-hidden rounded-2xl cursor-pointer bg-black"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+              <img
+                src={img}
+                alt={`Projeto ${i + 1}`}
+                className="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:brightness-110"
+              />
+
+              {/* OVERLAY SUAVE (NÃO ESCURECE DEMAIS) */}
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition" />
+
+            </div>
+          ))}
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="max-w-5xl mx-auto mt-32 text-center border-t border-white/10 pt-10">
+
+        <p className="text-white/80 text-lg">
+          📞 (32) 99834-3069
+        </p>
+
+        <p className="text-white/60 mt-2">
+          ✉️ jhulidesigners@gmail.com
+        </p>
+
+        <p className="text-white/30 text-sm mt-6">
+          JMP Designers © Todos os direitos reservados
+        </p>
+
+      </footer>
+
+      {/* MODAL */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/95 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            className="max-w-[92%] max-h-[92%] rounded-xl"
+          />
         </div>
-      </main>
-    </div>
+      )}
+
+    </main>
   );
 }
