@@ -5,7 +5,6 @@ import { useState } from "react";
 export default function Home() {
   const images = [
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111637.jpeg",
-    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111638.jpeg",
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111642.jpeg",
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111643.jpeg",
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111649.jpeg",
@@ -17,7 +16,6 @@ export default function Home() {
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111703.jpeg",
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111707.jpeg",
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111711.jpeg",
-    "/aparadores/Extremely_realistic_professional_architectural_photography_202606111723.jpeg",
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111729.jpeg",
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111730.jpeg",
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111743.jpeg",
@@ -86,14 +84,15 @@ export default function Home() {
               className="group relative overflow-hidden rounded-2xl cursor-pointer bg-black"
             >
 
-              <img
+               <img
                 src={img}
                 alt={`Projeto ${i + 1}`}
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:brightness-110"
               />
 
-              {/* OVERLAY SUAVE (NÃO ESCURECE DEMAIS) */}
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition" />
+              <div className="absolute top-3 left-3 bg-black/70 px-2 py-1 rounded text-white text-sm">
+                {i + 1}
+              </div>
 
             </div>
           ))}
