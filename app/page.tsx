@@ -34,6 +34,20 @@ export default function Home() {
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111806.jpeg"
   ];
 
+  const adegas = [
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111612.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111613.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111615.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111616.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111618.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111619.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111620.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111625.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111626.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111628.jpeg",
+  "/adegas/Extremely_realistic_professional_architectural_photography_202606111629.jpeg"
+];
+
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
@@ -83,8 +97,7 @@ export default function Home() {
               onClick={() => setSelectedImage(img)}
               className="group relative overflow-hidden rounded-2xl cursor-pointer bg-black"
             >
-
-               <img
+              <img
                 src={img}
                 alt={`Projeto ${i + 1}`}
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:brightness-110"
@@ -93,16 +106,45 @@ export default function Home() {
               <div className="absolute top-3 left-3 bg-black/70 px-2 py-1 rounded text-white text-sm">
                 {i + 1}
               </div>
-
             </div>
           ))}
 
         </div>
+      </section>
 
+      {/* TÍTULO GALERIA */}
+      <section className="max-w-7xl mx-auto mt-24">
+
+        <h2 className="text-3xl font-light tracking-widest mb-10 border-b border-white/10 pb-4">
+          ADEGAS PREMIUM
+        </h2>
+
+        {/* GALERIA */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+          {adegas.map((img, i) => (
+            <div
+              key={i}
+              onClick={() => setSelectedImage(img)}
+              className="group relative overflow-hidden rounded-2xl cursor-pointer bg-black"
+            >
+              <img
+                src={img}
+                alt={`Adega ${i + 1}`}
+                className="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:brightness-110"
+              />
+
+              <div className="absolute top-3 left-3 bg-black/70 px-2 py-1 rounded text-white text-sm">
+                {i + 1}
+              </div>
+            </div>
+          ))}
+
+        </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="max-w-5xl mx-auto mt-32 text-center border-t border-white/10 pt-10">
+      <footer>
 
         <p className="text-white/80 text-lg">
           📞 (32) 99834-3069
