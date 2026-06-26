@@ -34,19 +34,7 @@ export default function Home() {
     "/aparadores/Extremely_realistic_professional_architectural_photography_202606111806.jpeg"
   ];
 
-  const adegas = [
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111612.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111613.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111615.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111616.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111618.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111619.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111620.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111625.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111626.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111628.jpeg",
-  "/adegas/Extremely_realistic_professional_architectural_photography_202606111629.jpeg"
-];
+
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
