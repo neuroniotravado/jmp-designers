@@ -33,15 +33,22 @@ export default function Gallery({ images }: any) {
   variants={container}
 >
         {images.map((img: string, i: number) => (
-          <motion.div key={i} variants={item}>
-            <ImageCard
-              src={img}
-              index={i + 1}
-              onClick={() => setSelected(img)}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+  <motion.div
+    key={i}
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{
+      duration: 0.5,
+      delay: i * 0.08
+    }}
+  >
+    <ImageCard
+      src={img}
+      index={i + 1}
+      onClick={() => setSelected(img)}
+    />
+  </motion.div>
+))}
 
       <Modal src={selected} onClose={() => setSelected(null)} />
     </>
