@@ -10,7 +10,8 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12
+      staggerChildren: 0.15,
+      delayChildren: 0.2
     }
   }
 };
@@ -26,11 +27,11 @@ export default function Gallery({ images }: any) {
   return (
     <>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+  initial="hidden"
+  animate="show"
+  variants={container}
+>
         {images.map((img: string, i: number) => (
           <motion.div key={i} variants={item}>
             <ImageCard
