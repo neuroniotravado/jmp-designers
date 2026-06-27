@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Loading from "@/components/Loading";
 
 export default function Home() {
   const images = [
@@ -39,7 +40,6 @@ export default function Home() {
     "/novas-adegas/adega_02.jpeg",
     "/novas-adegas/adega_03.jpeg",
     "/novas-adegas/adega_04.jpeg",
-
     "/novas-adegas/Extremely_realistic_professional_architectural_photography_202606111612.jpeg",
     "/novas-adegas/Extremely_realistic_professional_architectural_photography_202606111613.jpeg",
     "/novas-adegas/Extremely_realistic_professional_architectural_photography_202606111615.jpeg",
@@ -51,18 +51,14 @@ export default function Home() {
     "/novas-adegas/Extremely_realistic_professional_architectural_photography_202606111626.jpeg",
     "/novas-adegas/Extremely_realistic_professional_architectural_photography_202606111628.jpeg",
     "/novas-adegas/Extremely_realistic_professional_architectural_photography_202606111629.jpeg",
-
     "/novas-adegas/Fotografia_profissional_de_arquitetura,_ângulo_202606251452.jpeg",
-
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251708.jpeg",
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251732.jpeg",
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251733.jpeg",
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251741.jpeg",
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251745.jpeg",
-
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251746 (cópia 1).jpeg",
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251750 (cópia 1).jpeg",
-
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251750.jpeg",
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251751.jpeg",
     "/novas-adegas/FOTOGRAFIA_ULTRARREALISTA_DE_ADEGA_PLANEJADA_202606251752.jpeg",
@@ -72,6 +68,21 @@ export default function Home() {
   ];
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // ⭐ NOVO: loading state
+  const [loading, setLoading] = useState(true);
+
+  // ⭐ NOVO: timer do loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // ⭐ NOVO: tela de loading (sem mexer no resto)
+  if (loading) return <Loading />;
 
   return (
     <main className="min-h-screen bg-black text-white px-6 pb-32">
@@ -166,19 +177,11 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer>
-
-        <p className="text-white/80 text-lg">
-          📞 (32) 99834-3069
-        </p>
-
-        <p className="text-white/60 mt-2">
-          ✉️ jhulidesigners@gmail.com
-        </p>
-
+        <p className="text-white/80 text-lg">📞 (32) 99834-3069</p>
+        <p className="text-white/60 mt-2">✉️ jhulidesigners@gmail.com</p>
         <p className="text-white/30 text-sm mt-6">
           JMP Designers © Todos os direitos reservados
         </p>
-
       </footer>
 
       {/* MODAL */}
